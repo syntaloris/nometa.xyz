@@ -112,6 +112,36 @@
             50% { transform: scale(1.05); opacity: 0.6; }
         }
 
+        @keyframes floatCircle {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(15px, -20px) scale(1.03); }
+            50% { transform: translate(-10px, -35px) scale(0.97); }
+            75% { transform: translate(-20px, -15px) scale(1.02); }
+        }
+
+        @keyframes floatCircleReverse {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(-18px, 12px) scale(0.96); }
+            50% { transform: translate(12px, 28px) scale(1.04); }
+            75% { transform: translate(22px, 8px) scale(0.98); }
+        }
+
+        @keyframes driftSlow {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(25px, -18px); }
+            66% { transform: translate(-15px, 12px); }
+        }
+
+        @keyframes ringPulse {
+            0%, 100% { transform: scale(1); opacity: 0.08; }
+            50% { transform: scale(1.15); opacity: 0.15; }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(30px);
@@ -148,6 +178,217 @@
             border-radius: 50%;
             animation: particleFloat linear infinite;
             opacity: 0;
+        }
+
+        /* ===== Background Decorative Circles ===== */
+        .bg-circles {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .bg-circle-1 {
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.04) 0%, transparent 70%);
+            top: 5%; left: -8%;
+            animation: floatCircle 22s ease-in-out infinite;
+        }
+
+        .bg-circle-2 {
+            width: 350px; height: 350px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.03) 0%, transparent 70%);
+            top: 30%; right: -5%;
+            animation: floatCircleReverse 26s ease-in-out infinite;
+        }
+
+        .bg-circle-3 {
+            width: 280px; height: 280px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.035) 0%, transparent 70%);
+            top: 55%; left: 10%;
+            animation: floatCircle 30s ease-in-out infinite;
+            animation-delay: -5s;
+        }
+
+        .bg-circle-4 {
+            width: 420px; height: 420px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.025) 0%, transparent 70%);
+            bottom: 5%; right: 5%;
+            animation: floatCircleReverse 24s ease-in-out infinite;
+            animation-delay: -8s;
+        }
+
+        .bg-circle-5 {
+            width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.05) 0%, transparent 70%);
+            top: 75%; left: 50%;
+            animation: floatCircle 18s ease-in-out infinite;
+            animation-delay: -3s;
+        }
+
+        .bg-circle-6 {
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.02) 0%, transparent 65%);
+            top: 15%; left: 40%;
+            animation: driftSlow 35s ease-in-out infinite;
+        }
+
+        /* Ring decorations */
+        .bg-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(34, 197, 94, 0.06);
+            pointer-events: none;
+        }
+
+        .bg-ring-1 {
+            width: 180px; height: 180px;
+            top: 12%; right: 15%;
+            animation: ringPulse 8s ease-in-out infinite;
+        }
+
+        .bg-ring-2 {
+            width: 120px; height: 120px;
+            top: 45%; left: 5%;
+            animation: ringPulse 10s ease-in-out infinite;
+            animation-delay: -3s;
+        }
+
+        .bg-ring-3 {
+            width: 250px; height: 250px;
+            bottom: 15%; left: 30%;
+            animation: ringPulse 12s ease-in-out infinite;
+            animation-delay: -6s;
+        }
+
+        .bg-ring-4 {
+            width: 90px; height: 90px;
+            top: 65%; right: 12%;
+            animation: ringPulse 7s ease-in-out infinite;
+            animation-delay: -2s;
+        }
+
+        .bg-ring-5 {
+            width: 160px; height: 160px;
+            top: 85%; left: 60%;
+            animation: ringPulse 9s ease-in-out infinite;
+            animation-delay: -4s;
+        }
+
+        /* Section-specific orbs */
+        .section-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .section-orb-1 {
+            width: 300px; height: 300px;
+            background: rgba(34, 197, 94, 0.04);
+            top: -50px; right: 10%;
+            animation: breathe 10s ease-in-out infinite;
+        }
+
+        .section-orb-2 {
+            width: 250px; height: 250px;
+            background: rgba(34, 197, 94, 0.03);
+            bottom: -30px; left: 8%;
+            animation: breathe 12s ease-in-out infinite;
+            animation-delay: -4s;
+        }
+
+        .section-orb-3 {
+            width: 200px; height: 200px;
+            background: rgba(34, 197, 94, 0.035);
+            top: 40%; right: -40px;
+            animation: breathe 9s ease-in-out infinite;
+            animation-delay: -2s;
+        }
+
+        /* Dot grid pattern */
+        .dot-grid {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background-image: radial-gradient(circle, rgba(34, 197, 94, 0.08) 1px, transparent 1px);
+            background-size: 16px 16px;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .dot-grid-1 {
+            top: 20%; left: 3%;
+            transform: rotate(15deg);
+        }
+
+        .dot-grid-2 {
+            bottom: 25%; right: 4%;
+            transform: rotate(-10deg);
+        }
+
+        /* Floating accent dots */
+        .accent-dot {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .accent-dot-1 {
+            width: 8px; height: 8px;
+            background: rgba(34, 197, 94, 0.2);
+            top: 18%; left: 20%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .accent-dot-2 {
+            width: 5px; height: 5px;
+            background: rgba(34, 197, 94, 0.15);
+            top: 42%; right: 25%;
+            animation: float 8s ease-in-out infinite;
+            animation-delay: -2s;
+        }
+
+        .accent-dot-3 {
+            width: 10px; height: 10px;
+            background: rgba(34, 197, 94, 0.1);
+            bottom: 30%; left: 45%;
+            animation: float 7s ease-in-out infinite;
+            animation-delay: -4s;
+        }
+
+        .accent-dot-4 {
+            width: 6px; height: 6px;
+            background: rgba(34, 197, 94, 0.18);
+            top: 60%; left: 15%;
+            animation: float 9s ease-in-out infinite;
+            animation-delay: -1s;
+        }
+
+        .accent-dot-5 {
+            width: 7px; height: 7px;
+            background: rgba(34, 197, 94, 0.12);
+            top: 80%; right: 20%;
+            animation: float 5s ease-in-out infinite;
+            animation-delay: -3s;
+        }
+
+        /* Divider decoration */
+        .section-divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--green-600), transparent);
+            margin: 0 auto 20px;
+            border-radius: 2px;
         }
 
         .navbar {
@@ -309,6 +550,45 @@
             animation-delay: -4s;
         }
 
+        .hero-orb-3 {
+            width: 200px; height: 200px;
+            background: rgba(34, 197, 94, 0.05);
+            top: 50%; left: 60%;
+            animation-delay: -6s;
+            animation-duration: 10s;
+        }
+
+        /* Hero decorative rings */
+        .hero-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(34, 197, 94, 0.06);
+            z-index: 0;
+        }
+
+        .hero-ring-1 {
+            width: 500px; height: 500px;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            animation: ringPulse 10s ease-in-out infinite;
+        }
+
+        .hero-ring-2 {
+            width: 650px; height: 650px;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            animation: ringPulse 12s ease-in-out infinite;
+            animation-delay: -3s;
+        }
+
+        .hero-ring-3 {
+            width: 350px; height: 350px;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            animation: ringPulse 8s ease-in-out infinite;
+            animation-delay: -1s;
+        }
+
         .hero-content {
             position: relative;
             z-index: 1;
@@ -466,6 +746,8 @@
         .container {
             max-width: 1050px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .section-header {
@@ -506,6 +788,7 @@
 
         .what-is-meta {
             background: radial-gradient(ellipse 50% 50% at 20% 50%, rgba(34, 197, 94, 0.03), transparent);
+            overflow: hidden;
         }
 
         .meta-explanation {
@@ -539,6 +822,16 @@
             border-radius: 18px;
             padding: 28px;
             animation: glow 6s ease infinite;
+            position: relative;
+        }
+
+        .chat-bubble-demo::before {
+            content: '';
+            position: absolute;
+            top: -1px; left: 30px; right: 30px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--green-600), transparent);
+            border-radius: 2px;
         }
 
         .chat-bubble-demo .bubble {
@@ -580,6 +873,7 @@
 
         .examples-section {
             background: radial-gradient(ellipse 50% 50% at 80% 30%, rgba(34, 197, 94, 0.03), transparent);
+            overflow: hidden;
         }
 
         .examples-grid {
@@ -605,6 +899,19 @@
             height: 2px;
             border-radius: 18px 18px 0 0;
         }
+
+        .example-card::after {
+            content: '';
+            position: absolute;
+            top: -50%; right: -50%;
+            width: 100%; height: 100%;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.02), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .example-card:hover::after { opacity: 1; }
 
         .example-card.bad-card::before {
             background: linear-gradient(90deg, rgba(212, 138, 138, 0.4), transparent);
@@ -686,6 +993,7 @@
 
         .rules-section {
             background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(34, 197, 94, 0.03), transparent);
+            overflow: hidden;
         }
 
         .rules-list {
@@ -705,6 +1013,23 @@
             border: 1px solid var(--dark-border);
             border-radius: 16px;
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rule-item::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 100px; height: 100px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.04), transparent 70%);
+            pointer-events: none;
+            transition: all 0.5s ease;
+            transform: translate(30%, -30%);
+        }
+
+        .rule-item:hover::after {
+            transform: translate(10%, -10%);
         }
 
         .rule-item:hover {
@@ -737,7 +1062,9 @@
             line-height: 1.75;
         }
 
-        .comparison-section { overflow: hidden; }
+        .comparison-section {
+            overflow: hidden;
+        }
 
         .comparison-table {
             max-width: 860px;
@@ -748,6 +1075,17 @@
             border-radius: 18px;
             overflow: hidden;
             border: 1px solid var(--dark-border);
+            position: relative;
+        }
+
+        .comparison-table::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 1px; height: 100%;
+            background: linear-gradient(180deg, transparent, var(--dark-border), transparent);
+            z-index: 1;
         }
 
         .comparison-header {
@@ -802,6 +1140,7 @@
 
         .why-section {
             background: radial-gradient(ellipse 60% 50% at 30% 50%, rgba(34, 197, 94, 0.03), transparent);
+            overflow: hidden;
         }
 
         .why-grid {
@@ -858,7 +1197,11 @@
             z-index: 1;
         }
 
-        .cta-section { padding: 100px 20px; }
+        .cta-section {
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
 
         .cta-box {
             max-width: 740px;
@@ -870,6 +1213,24 @@
             border-radius: 28px;
             position: relative;
             overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -1px; left: 60px; right: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--green-500), transparent);
+            border-radius: 2px;
+        }
+
+        .cta-box::after {
+            content: '';
+            position: absolute;
+            bottom: -100px; right: -100px;
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.05), transparent 70%);
+            pointer-events: none;
         }
 
         .cta-box h2 {
@@ -889,6 +1250,16 @@
             padding: 36px 20px;
             border-top: 1px solid var(--dark-border);
             text-align: center;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: -1px; left: 50%;
+            transform: translateX(-50%);
+            width: 200px; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--green-700), transparent);
         }
 
         .footer p {
@@ -941,6 +1312,10 @@
             .comparison-cell.good-cell::before { content: '✓ '; }
             .hero-stats { gap: 24px; }
             section { padding: 60px 16px; }
+
+            .bg-circle-1, .bg-circle-6 { width: 250px; height: 250px; }
+            .bg-circle-2, .bg-circle-4 { width: 180px; height: 180px; }
+            .hero-ring { display: none; }
         }
 
         @media (max-width: 500px) {
@@ -956,8 +1331,33 @@
 <div class="reading-progress" id="readingProgress"></div>
 <div class="particles-container" id="particles"></div>
 
+<!-- Background Decorative Circles -->
+<div class="bg-circles">
+    <div class="bg-circle bg-circle-1"></div>
+    <div class="bg-circle bg-circle-2"></div>
+    <div class="bg-circle bg-circle-3"></div>
+    <div class="bg-circle bg-circle-4"></div>
+    <div class="bg-circle bg-circle-5"></div>
+    <div class="bg-circle bg-circle-6"></div>
+
+    <div class="bg-ring bg-ring-1"></div>
+    <div class="bg-ring bg-ring-2"></div>
+    <div class="bg-ring bg-ring-3"></div>
+    <div class="bg-ring bg-ring-4"></div>
+    <div class="bg-ring bg-ring-5"></div>
+
+    <div class="dot-grid dot-grid-1"></div>
+    <div class="dot-grid dot-grid-2"></div>
+
+    <div class="accent-dot accent-dot-1"></div>
+    <div class="accent-dot accent-dot-2"></div>
+    <div class="accent-dot accent-dot-3"></div>
+    <div class="accent-dot accent-dot-4"></div>
+    <div class="accent-dot accent-dot-5"></div>
+</div>
+
 <nav class="navbar" id="navbar">
-    <a href="#" class="nav-logo">no<span class="meta-word">meta</span><span>.xyz</span></a>
+    <a href="#" class="nav-logo">syl.<span class="meta-word">nometa</span></a>
     <ul class="nav-links" id="navLinks">
         <li><a href="#what" data-i18n="nav_what">Что это?</a></li>
         <li><a href="#examples" data-i18n="nav_examples">Примеры</a></li>
@@ -979,6 +1379,10 @@
     <div class="hero-bg"></div>
     <div class="hero-orb hero-orb-1"></div>
     <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+    <div class="hero-ring hero-ring-1"></div>
+    <div class="hero-ring hero-ring-2"></div>
+    <div class="hero-ring hero-ring-3"></div>
     <div class="hero-content">
         <div class="hero-badge">
             <span class="dot"></span>
@@ -1017,8 +1421,11 @@
 </section>
 
 <section class="what-is-meta" id="what">
+    <div class="section-orb section-orb-1"></div>
+    <div class="section-orb section-orb-2"></div>
     <div class="container">
         <div class="section-header animate-on-scroll">
+            <div class="section-divider"></div>
             <div class="section-tag"><span>💡</span><span data-i18n="what_tag">Объяснение</span></div>
             <h2 class="section-title" data-i18n="what_title">Что такое мета-сообщение?</h2>
             <p class="section-desc" data-i18n="what_desc">Мета-сообщение — это сообщение о сообщении. Оно не содержит сути вопроса, а лишь подготавливает к нему.</p>
@@ -1047,8 +1454,10 @@
 </section>
 
 <section class="examples-section" id="examples">
+    <div class="section-orb section-orb-3"></div>
     <div class="container">
         <div class="section-header animate-on-scroll">
+            <div class="section-divider"></div>
             <div class="section-tag"><span>📋</span><span data-i18n="examples_tag">Примеры</span></div>
             <h2 class="section-title" data-i18n="examples_title">Как писать и как не писать</h2>
             <p class="section-desc" data-i18n="examples_desc">Реальные примеры из жизни — работа, учёба, быт, путешествия</p>
@@ -1170,6 +1579,7 @@
 <section class="comparison-section" id="comparison">
     <div class="container">
         <div class="section-header animate-on-scroll">
+            <div class="section-divider"></div>
             <div class="section-tag"><span>⚖</span><span data-i18n="comp_tag">Сравнение</span></div>
             <h2 class="section-title" data-i18n="comp_title">Быстрое сравнение</h2>
             <p class="section-desc" data-i18n="comp_desc">Каждая строка — одна жизненная ситуация, но разный подход</p>
@@ -1204,6 +1614,7 @@
 <section class="rules-section" id="rules">
     <div class="container">
         <div class="section-header animate-on-scroll">
+            <div class="section-divider"></div>
             <div class="section-tag"><span>📜</span><span data-i18n="rules_tag">Правила</span></div>
             <h2 class="section-title" data-i18n="rules_title">6 правил хорошего тона</h2>
             <p class="section-desc" data-i18n="rules_desc">Простые принципы, которые сделают общение приятнее для всех</p>
@@ -1256,8 +1667,10 @@
 </section>
 
 <section class="why-section" id="why">
+    <div class="section-orb section-orb-1"></div>
     <div class="container">
         <div class="section-header animate-on-scroll">
+            <div class="section-divider"></div>
             <div class="section-tag"><span>🤔</span><span data-i18n="why_tag">Зачем?</span></div>
             <h2 class="section-title" data-i18n="why_title">Почему это важно?</h2>
             <p class="section-desc" data-i18n="why_desc">Это не просто придирки — есть реальные причины</p>
@@ -1298,6 +1711,7 @@
 </section>
 
 <section class="cta-section">
+    <div class="section-orb section-orb-2"></div>
     <div class="container">
         <div class="cta-box animate-on-scroll">
             <h2 data-i18n="cta_title">Начните прямо сейчас</h2>
